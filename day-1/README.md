@@ -3,8 +3,8 @@
 ## Pages
 
 Next js supports pre-rendering which can be done in two ways:
---Static Generation
---Server-side Rendering
+- Static Generation
+- Server-side Rendering
 
 ### Static Generation:
 
