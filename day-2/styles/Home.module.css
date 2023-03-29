@@ -83,6 +83,26 @@
   height: 1em;
 }
 
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  gap: 1.2rem;
+}
+
+.links a {
+  text-decoration: none;
+  color: #01152d;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

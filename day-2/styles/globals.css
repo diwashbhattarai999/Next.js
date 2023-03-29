@@ -7,8 +7,8 @@ body {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
+  color: #01152d;
 }
 
 * {
@@ -35,4 +35,17 @@ ul {
 button {
   padding: 0.5rem 1rem;
   font-weight: bold;
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  gap: 1.2rem;
+}
+
+.links a {
+  text-decoration: none;
+  color: #01152d;
+  font-size: 1.2rem;
+  font-weight: 500;
 }

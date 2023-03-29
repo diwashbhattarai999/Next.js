@@ -1,13 +1,25 @@
-import React from 'react'
+import Link from "next/link";
+import { useRouter } from "next/router";
+import React from "react";
 
-const index = () => {
+const index = ({ productId = 100 }) => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    console.log("Placing your order...");
+    router.push("/product");
+  };
   return (
     <div>
-        <h2>Product 1</h2>
-        <h2>Product 2</h2>
-        <h2>Product 3</h2>
+      <Link href="/">Home</Link>
+      <Link href={`/products/${productId}`}>Product 1</Link>
+      <Link href={`/products/${productId}`}>Product 2</Link>
+      <Link href={`/products/${productId}`} replace>
+        Product 3
+      </Link>
+      <button onClick={handleClick}>Place Order</button>
     </div>
-  )
-}
+  );
+};
 
-export default index
+export default index;
