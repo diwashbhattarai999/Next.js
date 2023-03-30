@@ -7,7 +7,7 @@ const index = ({ productId = 100 }) => {
 
   const handleClick = () => {
     console.log("Placing your order...");
-    router.push("/product");
+    router.push("/products ");
   };
   return (
     <div>
