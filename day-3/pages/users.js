@@ -4,6 +4,7 @@ import Link from "next/link";
 const users = ({ users }) => {
   return (
     <>
+      {/* Any Link Component in the viewport(initially or through scroll) will be prefetched by default(including the corresponding data) for pages using Static Generation */}
       <Link href="/ ">Home</Link>
       <h1>List of Users</h1>
       {users.map((user) => {
@@ -22,7 +23,6 @@ export default users;
 export async function getStaticProps() {
   const res = await fetch("https://jsonplaceholder.typicode.com/users");
   const data = await res.json();
-  console.log(data);
 
   return {
     props: {
@@ -40,7 +40,7 @@ export async function getStaticProps() {
 //You also don't have to worry about including API keys in getStaticProps as that won't make it to the browser.
 
 //getStaticProps is allowed only in a page and cannot be run from a regular component file.
-//It is used only for pre-rendering and not client-side dat fetching
+//It is used only for pre-rendering and not client-side data fetching
 
 //getStaticProps should return an object and object should contain a props key which is an object
 
