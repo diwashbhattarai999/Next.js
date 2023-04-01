@@ -110,4 +110,4 @@ export async function getStaticProps(context) {
 //? When to use fallback
 //On a UX level, sometimes, people prefer the page to be loaded without loading indicator if the wait time is a few milli seconds. This helps avoid the layout shift.
 
-//Some crawlers did not support JavaScript. The loading page would be rendered and then the full page would be loaded which was causing a problem
+//Some crawlers did not support JavaScript. The loading page would be rendered and then the full page would be loaded which was causing a problemn
