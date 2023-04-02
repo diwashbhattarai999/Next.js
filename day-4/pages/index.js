@@ -13,6 +13,8 @@ export default function Home() {
       <main>
         <h1>Next JS pre-rendering</h1>
         <Link href="/products">Products</Link>
+        <br />
+        <Link href="/news">News</Link>
       </main>
     </>
   );
