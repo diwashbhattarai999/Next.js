@@ -1,4 +1,4 @@
-#Static Generation Summary: 
+# Static Generation Summary: 
 
 - Static Generation is a method of pre-rendering where the HTML pages are generated at build time
 
