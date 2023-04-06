@@ -16,7 +16,7 @@ export default Blog;
 
 export async function getStaticPaths() {
   return {
-    paths: [{ params: { blogID: "1" } }],
+    paths: [{ params: { blogId: "1" } }],
     fallback: false,
   };
 }
