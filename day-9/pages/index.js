@@ -1,8 +1,8 @@
-import { useSession } from "next-auth/react";
+import { getSession, signOut, useSession } from "next-auth/react";
 import { Poppins } from "next/font/google";
 import Head from "next/head";
 import Link from "next/link";
-import { useState } from "react";
+// import { useState } from "react";
 
 const poppins = Poppins({ subsets: ["latin"], weight: "400" });
 
@@ -10,12 +10,16 @@ export default function Home() {
   // const [session, setSession] = useState(false);
   const { data: session } = useSession();
 
+  function handleSignOut() {
+    signOut();
+  }
+
   return (
     <>
       <Head>
         <title>Home Page</title>
       </Head>
-      {session ? User({ session }) : Guest()}
+      {session ? User({ session, handleSignOut }) : Guest()}
     </>
   );
 }
@@ -41,7 +45,7 @@ function Guest() {
 }
 
 //Authorized User
-function User({ session }) {
+function User({ session, handleSignOut }) {
   return (
     <main
       className={`${poppins.className} flex flex-col items-center justify-center h-screen container mx-auto text-center`}
@@ -54,7 +58,10 @@ function User({ session }) {
       </div>
 
       <div className="flex justify-center">
-        <button className="mt-5 px-10 py-1 rounded-sm bg-indigo-500 bg-gray-50">
+        <button
+          onClick={handleSignOut}
+          className="mt-5 px-10 py-1 rounded-sm bg-indigo-500 bg-gray-50"
+        >
           Sign Out
         </button>
       </div>
@@ -69,4 +76,21 @@ function User({ session }) {
       </div>
     </main>
   );
+}
+
+export async function getServerSideProps({ req }) {
+  const session = await getSession({ req });
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { session },
+  };
 }

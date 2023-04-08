@@ -11,9 +11,14 @@ export default function Login() {
   const [show, setShow] = useState(false);
 
   //Google Handler Function
-  const handleGoogleSignIn = () => {
+  async function handleGoogleSignIn() {
     signIn("google", { callbackUrl: "http://localhost:3000" });
-  };
+  }
+
+  //GitHub Handler Function
+  async function handleGithubSignIn() {
+    signIn("github", { callbackUrl: "http://localhost:3000" });
+  }
 
   return (
     <Layout>
@@ -80,7 +85,11 @@ export default function Login() {
             </button>
           </div>
           <div className="input-button">
-            <button type="button" className={styles.button_custom}>
+            <button
+              type="button"
+              onClick={handleGithubSignIn}
+              className={styles.button_custom}
+            >
               Sign In with Github{" "}
               <Image
                 src={"/assets/github.svg"}
